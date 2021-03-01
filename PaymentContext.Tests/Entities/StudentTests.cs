@@ -9,9 +9,9 @@ namespace PaymentContext.Tests
         [TestMethod]
         public void TestMethod1()
         {
-            var subscription = new Subscription(null);
-            var student = new Student("Anderson", "Fachini", "123", "anderson.dkfachini@gmail.com");
-            student.AddSubscription(subscription);
+            //var subscription = new Subscription(null);
+            //var student = new Student("Anderson", "Fachini", "123", "anderson.dkfachini@gmail.com");
+            //student.AddSubscription(subscription);
         }
     }
 }
