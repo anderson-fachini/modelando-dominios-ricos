@@ -26,7 +26,7 @@ namespace PaymentContext.Domain.Entities
             );
         }
 
-        public String Number { get; private set; }
+        public string Number { get; private set; }
         public DateTime PaidDate { get; private set; }
         public DateTime ExpireDate { get; private set; }
         public decimal Total { get; private set; }
