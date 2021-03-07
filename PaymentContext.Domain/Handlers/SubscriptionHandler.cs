@@ -12,7 +12,7 @@ using PaymentContext.Shared.Handlers;
 
 namespace PaymentContext.Domain.Handlers
 {
-    public class SubscriptionHander :
+    public class SubscriptionHandler :
         Notifiable,
         IHandler<CreateBoletoSubscriptionCommand>,
         IHandler<CreatePayPalSubscriptionCommand>
@@ -20,7 +20,7 @@ namespace PaymentContext.Domain.Handlers
         private readonly IStudentRepository _repository;
         private readonly IEmailService _emailService;
 
-        public SubscriptionHander(IStudentRepository repository, IEmailService emailService)
+        public SubscriptionHandler(IStudentRepository repository, IEmailService emailService)
         {
             _repository = repository;
             _emailService = emailService;
@@ -76,6 +76,10 @@ namespace PaymentContext.Domain.Handlers
 
             // agrupar as validações
             AddNotifications(name, document, email, address, student, subscription, payment);
+
+            // checar as notificacoes
+            if (Invalid)
+                return new CommandResult(false, "Não foi possível realizar sua assinatura");
 
             // salvar informações
             _repository.CreateSubscription(student);
